@@ -1,0 +1,26 @@
+{% extends "tendencias/base.html" %} 
+{% load static %}
+{% block content %} 
+    <main id="mainDetalle" class="mainDetalle">
+      <section class="detalle" data-aos="zoom-in">
+        <div class="contenedorDetalle">
+            <div class="imgDetalle">
+                <img src="{{ pelicula.imagen.url }}" alt="{{ pelicula.titulo }}">
+            </div>
+            <div class="textoDetalle">
+                <h1>{{ pelicula.titulo }}</h1>
+                {% if pelicula.fecha_lanzamiento %}
+                    <p>{{ pelicula.fecha_lanzamiento|date:"d/m/Y" }} • {{ pelicula.genero }} • {{ pelicula.duracion }}m</p>
+                {% else %}
+                    <p>{{ pelicula.genero }} • {{ pelicula.duracion }}m</p>
+                {% endif %}
+                <h2>Director</h2>
+                <p>{{ pelicula.director }}</p>
+                <h2>Género</h2>
+                <p>{{ pelicula.genero }}</p>
+                <h2>Duración</h2>
+                <p>{{ pelicula.duracion }}m</p>
+            </div>
+        </div>
+      </section>
+    </main>{% endblock %}
